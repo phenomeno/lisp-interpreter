@@ -6,6 +6,21 @@ struct token {
   char* token_name;
   char* token_value;
 };
+struct func {
+  struct linked_list* args;
+  struct linked_list* body;
+  struct hash_table* captured;
+};
+
+/* Union struct */
+struct _value {
+  char* kind;
+  union _expression {
+    int _int;
+    char* _string;
+    struct func* _func;
+  } e;
+};
 
 // Create a tree node which has just a next value and append children to the next of next.
 // Find parent by going all the way to front of the nexts. I suppose I will make a prev too??
@@ -40,18 +55,6 @@ struct node* insert(struct node* parent_node, struct token* token) {
   append(parent_node->children, (void*) child_node);
   return child_node;
 }
-
-// Not sure we can really search because there is no key.
-// char* search(struct node* bst_node, int key) {
-//   if (bst_node->key == key) {
-//     printf("%s\n", bst_node->value);
-//     return bst_node->value;
-//   } else if (key < bst_node->key) {
-//     search(bst_node->left, key);
-//   } else {
-//     search(bst_node->right, key);
-//   }
-// }
 
 // Traverse from the root.
 void traverse(struct node* node, unsigned count) {
