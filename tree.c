@@ -2,38 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct token {
-  char* token_name;
-  char* token_value;
-};
-struct func {
-  struct linked_list* args;
-  struct linked_list* body;
-  struct hash_table* captured;
-};
-
-/* Union struct */
-struct _value {
-  char* kind;
-  union _expression {
-    int _int;
-    char* _string;
-    struct func* _func;
-  } e;
-};
-
-// Create a tree node which has just a next value and append children to the next of next.
-// Find parent by going all the way to front of the nexts. I suppose I will make a prev too??
-struct node {
-  void* value;
-  struct linked_list* children;
-};
-
-// Create a binary tree that has a binary tree node called root.
-struct tree {
-  struct node* root;
-};
-
 // Initialize the tree by defining a root.
 struct tree* create_tree() {
   struct tree* _tree = malloc(sizeof(struct tree));

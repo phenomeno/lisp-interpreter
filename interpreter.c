@@ -2,9 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "linked_list.h"
-#include "hash_table.h"
-#include "tree.h"
+#include "lisp_int.h"
 
 // Prototypes
 struct _value* interpret_list(struct node* _node, struct linked_list* context);
