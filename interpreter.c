@@ -334,7 +334,7 @@ struct _value* interpret_list(struct node* _node, struct linked_list* context) {
       struct node* child_of_second_index = get_next_node(second_index_in_list, 0);
       struct token* child_token = child_of_second_index->value;
 
-      // If variable definition, the second index will be an ident.
+      // If variable definition, the second index will be an ident. (define a 2) -> a = 2
       if (strcmp(child_token->token_name, "IDENT")==0) {
         char* variable_name;
         struct _value* variable_value;

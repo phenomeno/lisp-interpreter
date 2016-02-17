@@ -1,0 +1,37 @@
+(define (true a)
+  (define (f b)
+    a
+  )
+)
+
+(define (false a)
+  (define (f b)
+    b
+  )
+)
+
+(define (if p)
+  (define (f a)
+    (define (g b)
+      ((p a) b)
+    )
+  )
+)
+
+
+(((if true) 1) 2)
+
+(define (and p)
+  (define (f q)
+    ((p q) p)
+  )
+)
+
+((
+  (if
+    ((and true) false)
+  )
+  1
+)
+2
+)
